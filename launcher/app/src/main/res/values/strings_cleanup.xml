@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CleanYourFire: pulizia di Fire OS (CleanupActivity). Testi in italiano, la lingua di chi la usa. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="cleanup_app_name">Pulizia Fire TV</string>
+    <string name="cleanup_title">Pulizia Fire TV</string>
+    <string name="cleanup_intro">Disattiva (non disinstalla) pubblicità, telemetria e app Amazon che non usi, poi attiva il launcher pulito. Tutto si annulla con \"Ripristina tutto\".\n\nPrima volta: Impostazioni → La mia Fire TV → Informazioni → premi OK 7 volte sul nome del dispositivo. Poi La mia Fire TV → Opzioni sviluppatore → Debug ADB: ON. Quando la TV chiede di consentire il debug, scegli \"Consenti sempre da questo computer\".</string>
+    <string name="cleanup_connect">1. Connetti (debug ADB)</string>
+    <string name="cleanup_backup">2. Backup dell\'elenco app</string>
+    <string name="cleanup_categories">3. Cosa disattivare</string>
+    <string name="cleanup_category_row">%1$s %2$s (%3$d)</string>
+    <string name="cleanup_apply">4. Applica la pulizia</string>
+    <string name="cleanup_launcher_on">5. Attiva il launcher pulito (Home)</string>
+    <string name="cleanup_launcher_off">5. Disattiva il launcher pulito (torna la Home Amazon)</string>
+    <string name="cleanup_extras">6. Animazioni più rapide e libera la cache</string>
+    <string name="cleanup_privacy">7. Apri Impostazioni (Privacy e Autoplay, da fare a mano)</string>
+    <string name="cleanup_privacy_help">Preferenze → Impostazioni privacy: disattiva Dati sull\'utilizzo del dispositivo, Raccogli dati sull\'utilizzo delle app e Pubblicità basata sugli interessi. Preferenze → Contenuti in evidenza: disattiva la riproduzione automatica di video e audio.</string>
+    <string name="cleanup_restore">Ripristina tutto</string>
+    <string name="cleanup_adb_off">Fine: spegni il debug ADB</string>
+    <string name="cleanup_status_idle">Non connesso.</string>
+    <string name="cleanup_status_connecting">Connessione… se sulla TV compare \"Consentire debug USB?\", scegli Consenti sempre.</string>
+    <string name="cleanup_status_connected">Connesso (%1$s): %2$s, %3$s</string>
+    <string name="cleanup_busy">Attendi, un\'operazione è in corso.</string>
+    <string name="cleanup_restore_confirm">Riattivare tutte le app disattivate da questa app e spegnere il launcher pulito?</string>
+    <string name="cleanup_adb_off_confirm">Spegnere il debug ADB? Per ripristinare o riapplicare dovrai riaccenderlo dalle Opzioni sviluppatore.</string>
+    <string name="cleanup_open_launcher">Apri il launcher pulito</string>
+</resources>

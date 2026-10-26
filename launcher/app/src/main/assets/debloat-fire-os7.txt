@@ -1,0 +1,74 @@
+# CleanYourFire: lista di pulizia per Fire TV Stick con Fire OS 7.7.1.7 (build PS7717/5741, Android 9 / API 28).
+# Base: examples/amazon-fire-tv-stick-lite-2020/debloat.txt di CleanYourTV (MIT, https://github.com/Gathin23/cleanyourtv),
+# verificata sulla stessa build. Unica fonte per l'app (CleanupActivity) e per tools/cleanyourfire.sh / .ps1.
+#
+# Formato: "## [id] Titolo (on|off)" apre una categoria; ogni riga successiva è un pacchetto, "#" commenta.
+# Tutto viene DISATTIVATO per l'utente 0 (pm disable-user --user 0), mai disinstallato; pm enable lo riporta indietro.
+#
+# Protetti su questa build ("Cannot disable a protected package"), quindi esclusi:
+#   com.amazon.minerva.client.api, com.amazon.device.logmanager, com.amazon.device.crashmanager, com.amazon.diode,
+#   com.fireos.usagestats.proxy
+# Tenuti apposta: com.amazon.tv.launcher (Home, protetto), com.amazon.tv.settings.*, com.amazon.venezia (Appstore),
+#   com.amazon.tv.ime (tastiera), servizi telecomando/Bluetooth, aggiornamenti OTA, ricerca vocale (com.amazon.vizzini,
+#   aria, cardinal, ivona TTS, tcomm), Prime Video (com.amazon.firebat, com.amazon.tv.support), casting (cast.sink,
+#   dialservice, awvflingreceiver, whisperplay, whisperlink), profili (com.amazon.prism.android.service),
+#   com.amazon.tv.oobe (serve per il ripristino di fabbrica), salvaschermo, accessibilità (com.amazon.logan).
+
+## [telemetry] Telemetria, metriche e log (on)
+com.amazon.client.metrics.api
+com.amazon.neo.minerva
+com.amazon.neo.minerva.logcat
+com.amazon.tv.fw.metrics
+com.amazon.wirelessmetrics.service
+com.amazon.perfcollection
+com.amazon.perfc
+com.amazon.dp.logger
+com.amazon.ceviche                         # pipeline di raccolta dati
+com.amazon.tv.developer.dataservice        # dati di personalizzazione per app di terzi
+com.amazon.livedeviceservice
+com.amazon.privacypassservice              # token "privacy pass"
+com.amazon.wifilocker                      # invia le password Wi-Fi ad Amazon
+com.amazon.tv.acr                          # riconoscimento automatico dei contenuti (ACR)
+
+## [ads] Pubblicità, consigli, promozioni e shopping (on)
+com.amazon.kso.blackbird                   # sincronizzazione e aste delle pubblicità della Home
+com.amazon.sneakpeek                       # anteprime sponsorizzate "Sneak Peek"
+com.amazon.hybridadidservice               # ID pubblicitario
+com.amazon.media.recommendations
+com.amazon.providers.contentsupport
+com.amazon.tv.easyupgrade                  # promozioni "passa a una Fire TV nuova"
+com.amazon.shoptv.client                   # Amazon Shopping sulla TV
+com.amazon.shoptv.firetv.client
+com.amazon.hedwig                          # Fire TV Channels
+com.amazon.tv.livetv                       # scheda Live e guida (la stick non ha sintonizzatore)
+com.amazon.franktvinput                    # sorgente TV che alimenta la scheda Live
+com.amazon.gamehub                         # hub giochi / Luna
+com.amazon.systemnotices
+com.amazon.tv.releasenotes                 # note "novità"
+com.amazon.uxnotification                  # notifiche popup
+
+## [apps] App Amazon preinstallate e configurazione (on)
+com.amazon.tahoe                           # Amazon Kids (FreeTime)
+com.amazon.bueller.music                   # Amazon Music
+com.amazon.bueller.photos                  # Amazon Photos
+com.amazon.cloud9                          # Silk Browser
+com.amazon.tv.website_launcher             # apre i siti in Silk
+com.amazon.tmm.tutorial                    # tutorial del telecomando
+com.amazon.storm.lightning.tutorial        # tutorial dell'app telecomando
+com.amazon.naatyam
+com.amazon.whisperjoin.middleware.np       # configurazione "senza problemi" di altri dispositivi Amazon
+com.amazon.tv.ffsprovisioneeclient
+com.amazon.ods.kindleconnect               # "mostra su Fire TV" da Echo / tablet Fire
+com.amazon.tv.mattercohost                 # controller domotico Matter
+
+## [alexa] Extra di Alexa (la ricerca vocale col telecomando resta) (on)
+com.amazon.tv.alexaalerts                  # sveglie, timer, promemoria
+com.amazon.tv.alexanotifications
+com.amazon.alexa.externalmediaplayer.fireos   # riproduzione musica con Alexa
+com.amazon.alexamediaplayer.runtime.ftv
+com.amazon.aiondec                         # collegamenti alle skill di Alexa
+com.amazon.audiohome                       # Alexa Home Theater
+com.amazon.whad                            # audio multi-stanza
+com.amazon.whasettings
+com.amazon.wha.mediabrowserservice
+com.amazon.aca                             # suggerimenti di Alexa (~44 MB in RAM)
