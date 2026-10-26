@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.gathin.tvhome'
+    compileSdk 34
+
+    defaultConfig {
+        // Opt-in identity for firmware with a package-name HOME allowlist; see docs/devices/xiaomi-mitv-aetp0-dofus.md.
+        applicationId providers.gradleProperty('launcherApplicationId').getOrElse('com.gathin.tvhome')
+        minSdk 26
+        targetSdk 34
+        versionCode 100
+        versionName '1.0-fire'
+    }
+
+    signingConfigs {
+        // CleanYourFire: one fixed key kept in the repository, so every build installs over the last one on the
+        // stick (Downloader or adb install -r). Not a secret: anyone with the repository can sign with it.
+        cleanyourfire {
+            storeFile file('cleanyourfire.jks')
+            storePassword 'cleanyourfire'
+            keyAlias 'cleanyourfire'
+            keyPassword 'cleanyourfire'
+        }
+    }
+
+    buildTypes {
+        release {
+            // R8 strips and optimises the code (AndroidX included): smaller APK, faster start on a slow TV CPU.
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Sideloaded, never published: the repository's own key (signingConfigs.cleanyourfire).
+            signingConfig signingConfigs.cleanyourfire
+        }
+    }
+
+    packagingOptions {
+        resources {
+            // Kotlin metadata pulled in by AndroidX's dependencies. This launcher is plain Java and never reads it;
+            // leaving it out saves about 14 KB of every install.
+            excludes += ['kotlin/**', 'META-INF/*.version', 'META-INF/*.kotlin_module', 'DebugProbesKt.bin']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+    // CleanYourFire: ADB client for the stick's own adbd (LocalAdb). Pure JVM, no ADB server or binary.
+    implementation 'dev.mobile:dadb:1.2.10'
+    // Test only (never in the APK): plain JVM tests for the module card validators, src/test.
+    testImplementation 'junit:junit:4.13.2'
+}

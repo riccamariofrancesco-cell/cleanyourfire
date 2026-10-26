@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cleanupScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF101419"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="72dp"
+        android:paddingEnd="72dp"
+        android:paddingTop="38dp"
+        android:paddingBottom="38dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cleanup_title"
+            android:textColor="#FFFFFFFF"
+            android:textSize="34sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/cleanup_intro"
+            android:textColor="#B3FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cleanupStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cleanup_status_idle"
+            android:textColor="#FFB9E7C7"
+            android:textSize="18sp" />
+
+        <TextView android:id="@+id/cleanupConnect" style="@style/SettingsRow" android:layout_marginTop="18dp"
+            android:text="@string/cleanup_connect" />
+        <TextView android:id="@+id/cleanupBackup" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_backup" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/cleanup_categories"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/cleanupCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView android:id="@+id/cleanupApply" style="@style/SettingsRow" android:layout_marginTop="18dp"
+            android:text="@string/cleanup_apply" />
+        <TextView android:id="@+id/cleanupLauncher" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_launcher_on" />
+        <TextView android:id="@+id/cleanupExtras" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_extras" />
+        <TextView android:id="@+id/cleanupPrivacy" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_privacy" />
+        <TextView android:id="@+id/cleanupOpenLauncher" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_open_launcher" />
+        <TextView android:id="@+id/cleanupRestore" style="@style/SettingsRow" android:layout_marginTop="28dp"
+            android:text="@string/cleanup_restore" />
+        <TextView android:id="@+id/cleanupAdbOff" style="@style/SettingsRow" android:layout_marginTop="10dp"
+            android:text="@string/cleanup_adb_off" />
+
+        <TextView
+            android:id="@+id/cleanupLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="monospace"
+            android:textColor="#CCFFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>

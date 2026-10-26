@@ -1,0 +1,9 @@
+# Android / Gradle
+launcher/.gradle/
+launcher/build/
+launcher/app/build/
+launcher/local.properties
+launcher/.idea/
+*.iml
+# Backup e registri creati da tools/cleanyourfire.sh / .ps1 (dati del tuo dispositivo)
+backup/
